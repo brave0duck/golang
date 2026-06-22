@@ -16,13 +16,14 @@ func main() {
 	fmt.Println(color.BlueString("==========================="))
 	fmt.Println(color.YellowString("welcome to guess number game"))
 	fmt.Println(color.BlueString("==========================="))
+
 	for i := 1; i <= chance; i++ {
 		fmt.Println(color.YellowString("Try to guees number (1-100) : "))
-
 		fmt.Scanf("%d", &usr_guess)
 
 		if 0 > usr_guess || usr_guess > 100 {
 			fmt.Println(color.RedString("wrong input.. only 1-100 number"))
+			continue
 		} else {
 			switch {
 			case usr_guess > com:
@@ -44,6 +45,4 @@ func main() {
 	fmt.Print("  unfortunely... program exit\n")
 
 SUCCESS_EXIT:
-	return
-
 }
