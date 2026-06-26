@@ -29,9 +29,9 @@ func main() {
 		}
 
 		if usr_number > com_number {
-			fmt.Println("no .. it's high")
+			fmt.Println("it's high")
 		} else if usr_number < com_number {
-			fmt.Println("no .. it's low")
+			fmt.Println("it's low")
 		} else {
 			fmt.Println("Amazing! you Correct")
 			fmt.Printf("You correct %dth try\n", 6-ncount)
