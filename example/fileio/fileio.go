@@ -1,4 +1,4 @@
-// 간단한 파일입출력 예제. 
+// 간단한 파일입출력 예제.
 // file_open파일의 플래그 - CREATE, RDWR, APPEND (없으면 만들고, 읽고쓸수있고, 추가해라)
 package main
 
@@ -14,6 +14,8 @@ func file_open(file_name string) *os.File {
 		fmt.Fprintf(os.Stderr, "failed open file : %v", err)
 		return nil
 	}
+	file_info := f.Fd()
+	fmt.Println("파일 디스크립터 : ", file_info)
 	return f
 }
 func file_read(file_name string) string {
