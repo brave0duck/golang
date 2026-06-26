@@ -1,7 +1,4 @@
-// 1. usr input 1-100
-// 2. while usr guess number
-// 3. chance count
-// 4. program exit if correct number
+// guess number game
 package main
 
 import (
@@ -15,25 +12,28 @@ func main() {
 
 	fmt.Println("-----------------------------------")
 	fmt.Println("guess number game")
-	fmt.Println("must correct within 5 chance")
-	fmt.Println("----------------------------")
+	fmt.Println("You have to get it right within 5 tries.")
+	fmt.Println("-----------------------------------")
 
-	com_number := rand.Intn(99) + 1
+	com_number := rand.Intn(99) + 1 // random 1-100
 
 	for ncount > 0 {
 
 		fmt.Printf("Guess number 1-100 (%d remain)\n", ncount)
 		if _, err := fmt.Scanf("%d", &usr_number); err != nil {
-			fmt.Printf("only number can input : %v\n", err)
+			fmt.Printf("%v\n", err)
 			continue
 		}
-
+		if 0 > usr_number || usr_number > 100{
+			fmt.Println("== only 1-100 number. retry")
+			continue
+		}
 		if usr_number > com_number {
-			fmt.Println("it's high")
+			fmt.Println("---> it's high")
 		} else if usr_number < com_number {
-			fmt.Println("it's low")
+			fmt.Println("---> it's low")
 		} else {
-			fmt.Println("Amazing! you Correct")
+			fmt.Printf("Amazing! you Correct!\n")
 			fmt.Printf("You correct %dth try\n", 6-ncount)
 			break
 		}
@@ -41,6 +41,7 @@ func main() {
 
 	}
 	if ncount == 0 {
-		fmt.Printf("Unfortune guy, Correct number was [%d]\nProgram exit...", com_number)
+		fmt.Printf("Unfortunately, You couldn't guess it. The correct answer is [%d]\n", com_number)
 	}
+	fmt.Printf("Program exit...\n")
 }
