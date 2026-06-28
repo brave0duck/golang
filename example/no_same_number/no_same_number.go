@@ -20,7 +20,6 @@ func solution(a []int) []int {
 	return answer
 }
 func main() {
-	//t := []int{1, 1, 3, 3, 0, 1, 1}
 	t := []int{4, 4, 4, 3, 3}
 	a := solution(t)
 	fmt.Println(a)
